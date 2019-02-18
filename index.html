@@ -104,11 +104,11 @@
     /* Animations */
     @keyframes orbit {
         0%   { transform: rotateZ(0deg); }
-        100% { transform: rotateZ(-360deg); }
+        100% { transform: rotateZ(360deg); }
     }
 
     @keyframes invert {
-        0%   { transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg); }
+        0%   { transform: rotateX(-90deg) rotateY(-360deg) rotateZ(0deg); }
         100% { transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg); }
     }
 
