@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Universe</title>
+</head>
+<body>
+<style>
+
+    /* CSS Reset */
+
+    html, body {
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        line-height: 1;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+
+    * {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+        /* Background */
+
+    #universe {
+        z-index: 1;
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        background-position: center 40%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #galaxy {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: rotateX(75deg);
+        transform-style: preserve-3d;
+    }
+
+    #earth, .moon-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1.3em;
+        height: 1.3em;
+        margin-top: -0.5em;
+        margin-left: -0.5em;
+        border-radius: 50%;
+        transform-style: preserve-3d;
+    }
+
+    #earth {
+        left: 47%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transform: rotateX(-75deg);
+    }
+
+    .pos {
+        position: absolute;
+        transform-style: preserve-3d;
+        animation-name: invert;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    .moon-img {
+        background-color: #202020;
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    .orbit {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        animation-name: orbit;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        transform-style: preserve-3d;
+    }
+
+    /* Animations */
+    @keyframes orbit {
+        0%   { transform: rotateZ(0deg); }
+        100% { transform: rotateZ(-360deg); }
+    }
+
+    @keyframes invert {
+        0%   { transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg); }
+        100% { transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg); }
+    }
+
+    /* Orbit sizes */
+    #moon.orbit {
+        width: 12em;
+        height: 12em;
+        margin-top: -6em;
+        margin-left: -6em;
+    }
+
+    /* moon-img starting positions */
+    #moon .pos {
+        left: 50%;
+        top: -1px;
+        border: solid 3px red;
+    }
+
+    /* moon-img animation durations */
+    #moon.orbit, #moon .pos {
+        animation-duration: 2.89016s;
+    }
+
+    /* moon-img sizes */
+    #earth {
+        font-size: 24em;
+    }
+    #moon {
+        font-size: 5em;
+    }
+
+    /* moon-img shadow animations */
+    #moon .moon-img {
+        animation-name: shadow-moon;
+        animation-duration: 2.89016s; }
+
+    @keyframes shadow-moon {
+        0% {
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            /* TOP */ }
+
+        25% {
+            box-shadow: inset 16px 0 8px rgba(0, 0, 0, 0.5);
+            /* LEFT */ }
+
+        50% {
+            box-shadow: inset 40px -20px 16px rgba(0, 0, 0, 0.5);
+            /* BOTTOM */ }
+
+        50.01% {
+            box-shadow: inset -40px -20px 16px rgba(0, 0, 0, 0.5);
+            /* BOTTOM */ }
+
+        75% {
+            box-shadow: inset -16px 0 8px rgba(0, 0, 0, 0.5);
+            /* RIGHT */ }
+
+        100% {
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            /* TOP */ }
+    }
+
+    /* images */
+
+    #earth {
+        background-image: url(https://files.slack.com/files-pri/TD999384U-FG8A9AYPK/earth.png);
+    }
+
+    .moon-img {
+        background-image: url(https://files.slack.com/files-pri/TD999384U-FG8PFFGD9/moon2.png);
+    }
+
+    body {
+        background-image: url(https://files.slack.com/files-pri/TD999384U-FGAACNZE2/cosmos.jpg);
+    }
+
+</style>
+<div id="universe">
+    <div id="galaxy">
+        <div id="earth"></div>
+        <div id="moon" class="orbit">
+            <div class="pos">
+                <div class="moon-img"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
